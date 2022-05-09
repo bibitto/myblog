@@ -1,14 +1,15 @@
 import { Client } from '@notionhq/client';
+require('dotenv').config();
 
 const client = new Client({
-    auth: "secret_NQeOSmrh55b8GarchMgBryQBG5Po3aQA7sUKKJfn02S",
+    auth: process.env.NOTION_API_KEY,
 });
 
 // checkのついたものを取得
 // dateの日付昇順に並び替え
 async function posts() {
     const myPosts = await client.databases.query({
-        database_id: '1947490e33a341408ca71cc11b560c98',
+        database_id: process.env.NOTION_DATABASE_ID || "",
         filter: {
             or: [
                 {

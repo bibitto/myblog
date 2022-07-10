@@ -6,7 +6,7 @@ const client = new Client({
 });
 
 // checkのついたものを取得
-// dateの日付昇順に並び替え
+// dateの日付降順に並び替え
 async function posts() {
     const myPosts = await client.databases.query({
         database_id: process.env.NOTION_DATABASE_ID || "",
@@ -23,24 +23,28 @@ async function posts() {
         sorts: [
             {
                 property: "date",
-                direction: "ascending",
+                direction: "descending",
             },
         ]
     });
     return myPosts;
 }
 
+// pageを取得
 async function post(id: string) {
     const myPost = await client.pages.retrieve({
         page_id: id,
     });
+    console.log(myPost)
     return myPost;
 }
 
+// blockを取得
 async function blocks(id: string) {
     const myBlocks = await client.blocks.children.list({
         block_id: id
     });
+    console.log(myBlocks)
     return myBlocks;
 }
 

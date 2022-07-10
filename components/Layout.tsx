@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import styles from 'layout.module.css';
+import styles from './Layout.module.css';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Link from 'next/link';

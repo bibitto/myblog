@@ -6,7 +6,6 @@ import { posts, post, blocks } from '../../lib/notion';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
 import utilStyles from '../../styles/utils.module.css';
-import { useEffect } from 'react';
 
 export async function getServerSideProps() {
     let { results } = await posts();

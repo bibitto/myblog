@@ -13,11 +13,8 @@ interface IParams extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     let { id } = ctx.params as IParams;
-    // Get the dynamic id
     let page_result = await post(id);
-    // Fetch the post
     let { results } = await blocks(id);
-    // Get the children
     return {
         props: {
             id,
@@ -28,13 +25,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 };
 export const getStaticPaths: GetStaticPaths = async () => {
     let { results } = await posts();
-    // Get all posts
     return {
-        paths: results.map((post) => {
-            // Go through every post
+        paths: results?.map((post) => {
             return {
                 params: {
-                    // set a params object with an id in it
                     id: post.id,
                 },
             };
@@ -62,7 +56,6 @@ const renderBlock = (block: any): JSX.Element => {
         case 'heading_3':
             return <h3>{block[type]?.rich_text[0]?.plain_text}</h3>;
         case 'image':
-            // For an image
             return (
                 <div>
                     <Image src={block[type]?.file.url} width={600} height={400} alt="" />
@@ -71,17 +64,14 @@ const renderBlock = (block: any): JSX.Element => {
                 </div>
             );
         case 'bulleted_list_item':
-            // For an unordered list
             return (
                 <ul>
                     <li>{block[type]?.rich_text[0]?.plain_text}</li>
                 </ul>
             );
         case 'paragraph':
-            // For a paragraph
             return <p>{block[type]?.rich_text[0]?.plain_text} </p>;
         default:
-            // For an extra type
             return <p>Undefined type </p>;
     }
 };
@@ -89,11 +79,8 @@ const renderBlock = (block: any): JSX.Element => {
 const Post: NextPage<Props> = ({ id, post, blocks }) => {
     return (
         <div className={styles.container}>
-            <Head>
-                <title>{post.properties.post.title[0].plain_text}</title>
-            </Head>
             <Layout>
-                {blocks.map((block, index) => {
+                {blocks?.map((block, index) => {
                     return (
                         <div key={index} className={styles.blogPageContent}>
                             {renderBlock(block)}

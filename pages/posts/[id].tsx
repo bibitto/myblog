@@ -1,6 +1,5 @@
 import { GetStaticProps, NextPage, GetStaticPaths } from 'next';
 import Image from 'next/image';
-import Head from 'next/head';
 import Link from 'next/link';
 import { ParsedUrlQuery } from 'querystring';
 import { post, posts, blocks } from '../../lib/notion';

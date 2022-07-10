@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@mui/styled-engine-sc": "^5.8.0",
-        "@notionhq/client": "^2.0.0",
+        "@notionhq/client": "^1.0.4",
         "dotenv": "^16.0.0",
         "next": "12.1.6",
         "notion-utils": "^6.12.9",

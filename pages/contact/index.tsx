@@ -5,7 +5,8 @@ const index = () => {
     return (
         <div>
             <Layout>
-                <Link href="/">ホームへ</Link>
+                <div>TwitterのDMによるコンタクトも可能です</div>
+                <div>メールでコンタクト</div>
             </Layout>
         </div>
     );

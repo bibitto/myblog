@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
-import { posts, post, blocks } from '../../lib/notion';
+import { posts } from '../../lib/notion';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
 import utilStyles from '../../styles/utils.module.css';
@@ -31,25 +31,22 @@ const Post: NextPage<Props> = (props) => {
 
             <Layout>
                 <section className={utilStyles.headingMd}>
-                    <div className="grid gap-10 md:grid-cols-3 grid-cols-2 grid-rows-3">
+                    <div className="grid gap-10 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 grid-rows-3">
                         {props.posts.map((result, index) => {
                             return (
                                 <article key={index}>
-                                    <div className="rounded-b-lg shadow hover:shadow-indigo-500/40">
+                                    <div className="border-2 rounded-lg shadow hover:shadow-indigo-500/40 text-center hover:opacity-50 cursor-pointer">
                                         <Link href={`/posts/${result.id}`}>
-                                            {/* 画像部分でポインターにならない */}
                                             <Image
-                                                className="rounded-t-lg"
+                                                className="rounded-t"
                                                 src={result.properties.thumbnail.files[0].file.url}
                                                 alt="thumbnail"
-                                                height={300}
-                                                width={400}
+                                                height={550}
+                                                width={700}
                                             />
                                         </Link>
                                         <Link href={`/posts/${result.id}`}>
-                                            <p className="text-center font-bold">
-                                                {result.properties.post.title[0].plain_text}
-                                            </p>
+                                            <p className="font-bold">{result.properties.post.title[0].plain_text}</p>
                                         </Link>
                                         <small className="text-zinc-400">{result.properties.date.date.start}</small>
                                     </div>
@@ -58,8 +55,6 @@ const Post: NextPage<Props> = (props) => {
                         })}
                     </div>
                 </section>
-
-                <Link href="/">Homeに戻る</Link>
             </Layout>
         </div>
     );

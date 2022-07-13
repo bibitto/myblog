@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ParsedUrlQuery } from 'querystring';
 import { post, posts, blocks } from '../../lib/notion';
-import styles from '../../styles/Home.module.css';
 import Layout from '../../components/Layout';
 
 interface IParams extends ParsedUrlQuery {
@@ -36,28 +35,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-interface Props {
-    id: string;
-    post: any;
-    blocks: [any];
-}
-
 const renderBlock = (block: any): JSX.Element => {
     const type = block.type;
 
     switch (type) {
         case 'heading_1':
-            return <h1>{block[type]?.rich_text[0]?.plain_text} </h1>;
+            return <h1 className="text-4xl">{block[type]?.rich_text[0]?.plain_text} </h1>;
 
         case 'heading_2':
-            return <h2>{block[type]?.rich_text[0]?.plain_text}</h2>;
+            return <h2 className="text-3xl">{block[type]?.rich_text[0]?.plain_text}</h2>;
 
         case 'heading_3':
-            return <h3>{block[type]?.rich_text[0]?.plain_text}</h3>;
+            return <h3 className="text-2xl">{block[type]?.rich_text[0]?.plain_text}</h3>;
         case 'image':
             return (
                 <div>
-                    <Image src={block[type]?.file.url} width={600} height={400} alt="" />
+                    <Image src={block[type]?.file.url} width={400} height={300} alt="" />
                     <br />
                     <small>{block[type]?.caption[0]?.plain_text}</small>
                 </div>
@@ -75,23 +68,31 @@ const renderBlock = (block: any): JSX.Element => {
     }
 };
 
-const Post: NextPage<Props> = ({ id, post, blocks }) => {
+interface Props {
+    id: string;
+    post: any;
+    blocks: [any];
+}
+
+const Post: NextPage<Props> = ({ blocks }) => {
     return (
-        <div className={styles.container}>
+        <div className="text-center">
             <Layout>
                 {blocks?.map((block, index) => {
                     return (
-                        <div key={index} className={styles.blogPageContent}>
+                        <div key={index} className="mt-1">
                             {renderBlock(block)}
                         </div>
                     );
                 })}
-                <div>
-                    <nav>
-                        <Link href="/">
-                            <a>Homeに戻る</a>
-                        </Link>
-                    </nav>
+                <div className="mt-10">
+                    <Link href="/posts">
+                        <div>
+                            <button className="rounded-lg p-1 font-bold border-2 shadow hover:shadow-indigo-500/40 hover:opacity-50">
+                                ブログ一覧
+                            </button>
+                        </div>
+                    </Link>
                 </div>
             </Layout>
         </div>

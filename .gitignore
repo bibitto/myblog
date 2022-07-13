@@ -36,3 +36,5 @@ yarn-error.log*
 
 #　envfile
 /.env
+
+README.md

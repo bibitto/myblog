@@ -30,13 +30,13 @@ const Layout = ({ children }: Props) => {
                 <h1 className="font-bold text-2xl text-center mt-1">{name}</h1>
                 <div className="flex justify-center gap-10 mt-2">
                     <Link href="https://github.com/bibitto">
-                        <GitHubIcon className="w-8 h-10 hover:animate-bounce cursor-pointer" />
+                        <GitHubIcon className="w-10 h-10 hover:animate-bounce cursor-pointer" />
                     </Link>
                     <Link href="/">
                         <HomeIcon className="w-10 h-10 hover:animate-bounce cursor-pointer" />
                     </Link>
                     <Link href="https://twitter.com/Deep_in_Crypto">
-                        <TwitterIcon className="w-9 h-10 hover:animate-bounce cursor-pointer" />
+                        <TwitterIcon className="w-10 h-10 hover:animate-bounce cursor-pointer" />
                     </Link>
                 </div>
             </header>

@@ -3,8 +3,8 @@ import Layout from '../../components/Layout';
 const index = () => {
     return (
         <Layout>
-            <div className="flex-col text-center">
-                <div className="pt-2 pb-7">
+            <div className="grid lg:grid-cols-6 text-center">
+                <div className="lg:col-start-2 lg:col-span-2 pt-2 pb-7">
                     <h2 className="text-2xl">経歴</h2>
                     <p>九州大学工学部4年生 (休学中)</p>
                     <p>専攻：複雑系、ゲーム理論、MAS</p>
@@ -29,13 +29,13 @@ const index = () => {
                         </a>
                     </p>
                 </div>
-                <div className="pt-2 pb-7">
+                <div className="lg:col-start-4 lg:col-span-2 row-start-2 pt-2 pb-7">
                     <h2 className="text-2xl">趣味</h2>
                     <p>運動：フットサル、筋トレ、散歩</p>
-                    <p>音楽(ライブ)：ハルカミライ、マカえん、RADなど</p>
+                    <p>音楽(ライブ)：ハルカミライ、マカえん、RAD...</p>
                     <p>その他：サウナ、麻雀、ギター</p>
                 </div>
-                <div className="pt-2 pb-7">
+                <div className="lg:col-start-2 lg:col-span-2 row-start-3 pt-2 pb-7">
                     <h2 className="text-2xl">熱狂</h2>
                     <p>ブロックチェーン (Web3.0)</p>
                     <p>アンチ中央集権、D(分散性)の意思を継ぐ者です</p>
@@ -50,14 +50,14 @@ const index = () => {
                         」
                     </p>
                 </div>
-                <div className="pt-2 pb-7">
+                <div className="lg:col-start-4 lg:col-span-2 row-start-4 pt-2 pb-7">
                     <h2 className="text-2xl">技術スタック</h2>
                     <p>フロントエンド：React,Next,TypeScript</p>
                     <p>バックエンド：Go (勉強中)</p>
                     <p>ブロックチェーン：Solidity</p>
                     <p>機械学習：Python (TensorFlow, PyTorch)</p>
                 </div>
-                <div className="pt-2 pb-7">
+                <div className="lg:col-start-2 lg:col-span-2 row-start-5 pt-2 pb-7">
                     <h2 className="text-2xl">コミュニティ</h2>
                     <p>
                         コアメンバー：

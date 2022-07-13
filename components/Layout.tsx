@@ -27,8 +27,8 @@ const Layout = ({ children }: Props) => {
                     <Image src="/images/bibitto_icon.jpeg" alt="" width={200} height={200} className="rounded-full" />
                 </div>
 
-                <h1 className="font-bold text-2xl text-center">{name}</h1>
-                <div className="flex justify-center gap-10">
+                <h1 className="font-bold text-2xl text-center mt-1">{name}</h1>
+                <div className="flex justify-center gap-10 mt-2">
                     <Link href="https://github.com/bibitto">
                         <GitHubIcon className="w-8 h-10 hover:animate-bounce cursor-pointer" />
                     </Link>

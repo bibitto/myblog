@@ -4,7 +4,8 @@ import { useMail } from '../../hooks/useMail';
 const Contact = () => {
     const { setName, setMail, setMemo, setSubject, setContent, sendMail } = useMail();
     const resetValues = () => {
-        document.contactForm.reset();
+        const fromIndex = 0;
+        document.forms[fromIndex].reset();
     };
     return (
         <div>
@@ -17,40 +18,40 @@ const Contact = () => {
                     <label className="block">
                         <input
                             type="text"
-                            className="w-full block rounded-md border border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            placeholder=" 名前"
+                            className="px-1 w-full block rounded-md border border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="名前"
                             onChange={(e) => setName(e.target.value)}
                         />
                     </label>
                     <label className="block">
                         <input
                             type="text"
-                            className="w-full block rounded-md border border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            placeholder=" 連絡先（メール）"
+                            className="px-1 w-full block rounded-md border border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="連絡先（メール）"
                             onChange={(e) => setMail(e.target.value)}
                         />
                     </label>
                     <label className="block row-span-3">
                         <textarea
                             rows={6}
-                            className="w-full block rounded-md border border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            placeholder=" 備考"
+                            className="px-1 w-full block rounded-md border border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="備考"
                             onChange={(e) => setMemo(e.target.value)}
                         />
                     </label>
                     <label className="block">
                         <input
                             type="text"
-                            className="w-full block rounded-md border border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                            placeholder=" 件名"
+                            className="px-1 w-full block rounded-md border border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            placeholder="件名"
                             onChange={(e) => setSubject(e.target.value)}
                         />
                     </label>
                     <label className="block row-span-4">
                         <textarea
                             rows={8}
-                            className="w-full block rounded-md border border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 pb-2"
-                            placeholder=" 内容"
+                            className="px-1 w-full block rounded-md border border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 pb-2"
+                            placeholder="内容"
                             onChange={(e) => setContent(e.target.value)}
                         />
                     </label>

@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import styles from '../styles/Home.module.css';
 import { posts } from '../lib/notion';
 import Link from 'next/link';
 import Layout from '../components/Layout';
@@ -15,7 +14,7 @@ export async function getServerSideProps() {
 
 const Home: NextPage = () => {
     return (
-        <div className={styles.container}>
+        <div>
             <Layout>
                 <div className="grid md:grid-cols-2 grid-cols-1 gap-12">
                     <Link href={'about/'}>
